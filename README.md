@@ -30,7 +30,8 @@ Here are the top technologies I use
 <img alt="Prettier" src="https://img.shields.io/badge/-Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white" />
 <img alt="MongoDB" src="https://img.shields.io/badge/-MongoDB-13aa52?style=flat-square&logo=mongodb&logoColor=white" />
 
-## Get in touch with me on
+## 📈 GitHub Stats
 
-### [LinkedIn](https://www.linkedin.com/in/codewithaquib)
-### [Instagram](https://www.instagram.com/codewithaquib)
+![Your GitHub Stats](https://github-readme-stats.vercel.app/api?username=codewithaquib&show_icons=true&theme=radical)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=codewithaquib&layout=compact&theme=radical)
