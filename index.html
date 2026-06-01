@@ -3,7 +3,792 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio | Aquib Ajani</title>
+    <title>Aquib Ajani — AI Full-Stack Engineer & Instructor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: #f8fafc;
+        color: #0f172a;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Hero */
+      .hero {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        color: #fff;
+        padding: 64px 0 56px;
+        text-align: center;
+      }
+
+      .hero .avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #38bdf8;
+        margin-bottom: 16px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin-bottom: 8px;
+      }
+
+      .hero .title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #94a3b8;
+        margin-bottom: 20px;
+      }
+
+      .hero .links {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        flex-wrap: wrap;
+        font-size: 0.95rem;
+      }
+
+      .hero .links a {
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      .hero .links a:hover {
+        color: #7dd3fc;
+        text-decoration: underline;
+      }
+
+      .hero .contact {
+        margin-top: 16px;
+        font-size: 0.95rem;
+        color: #cbd5e1;
+      }
+
+      .hero .contact span {
+        margin: 0 12px;
+        color: #475569;
+      }
+
+      /* Sections */
+      section {
+        padding: 48px 0;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      section:last-of-type {
+        border-bottom: none;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 28px;
+        letter-spacing: -0.02em;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .section-title::before {
+        content: "";
+        display: inline-block;
+        width: 4px;
+        height: 28px;
+        background: #3b82f6;
+        border-radius: 2px;
+      }
+
+      /* Summary */
+      .summary p {
+        font-size: 1.05rem;
+        color: #334155;
+        max-width: 900px;
+      }
+
+      /* Experience */
+      .exp-block {
+        margin-bottom: 32px;
+      }
+
+      .exp-block:last-child {
+        margin-bottom: 0;
+      }
+
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+
+      .exp-header h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #0f172a;
+      }
+
+      .exp-header .company {
+        font-weight: 600;
+        color: #3b82f6;
+      }
+
+      .exp-header .date {
+        font-size: 0.85rem;
+        color: #64748b;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      .exp-sub {
+        font-size: 0.9rem;
+        color: #64748b;
+        margin-bottom: 10px;
+      }
+
+      .exp-sub a {
+        color: #3b82f6;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .exp-sub a:hover {
+        text-decoration: underline;
+      }
+
+      .project-item a {
+        color: #3b82f6;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .project-item a:hover {
+        text-decoration: underline;
+      }
+
+      .edu-detail a,
+      .cert-list a {
+        color: #3b82f6;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .edu-detail a:hover,
+      .cert-list a:hover {
+        text-decoration: underline;
+      }
+
+      .exp-block ul li a {
+        color: #3b82f6;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .exp-block ul li a:hover {
+        text-decoration: underline;
+      }
+
+      .exp-block ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .exp-block ul li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 6px;
+        font-size: 0.95rem;
+        color: #334155;
+      }
+
+      .exp-block ul li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: #3b82f6;
+        font-weight: 700;
+      }
+
+      /* Projects */
+      .project-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .project-item {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 16px 20px;
+        font-size: 0.95rem;
+        color: #334155;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      }
+
+      .project-item strong {
+        color: #0f172a;
+      }
+
+      /* Skills */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .skill-cat h4 {
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #3b82f6;
+        margin-bottom: 8px;
+      }
+
+      .skill-cat p {
+        font-size: 0.95rem;
+        color: #334155;
+      }
+
+      /* Education */
+      .edu-block {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+
+      .edu-block h3 {
+        font-size: 1.05rem;
+        font-weight: 700;
+      }
+
+      .edu-block .date {
+        font-size: 0.85rem;
+        color: #64748b;
+      }
+
+      .edu-detail {
+        font-size: 0.95rem;
+        color: #475569;
+        margin-bottom: 20px;
+      }
+
+      .cert-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .cert-list li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 6px;
+        font-size: 0.95rem;
+        color: #334155;
+      }
+
+      .cert-list li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: #3b82f6;
+        font-weight: 700;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 32px 0;
+        font-size: 0.85rem;
+        color: #94a3b8;
+      }
+
+      /* Responsive */
+      @media (max-width: 640px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+        .hero .links {
+          flex-direction: column;
+          gap: 8px;
+        }
+        .exp-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .project-list {
+          grid-template-columns: 1fr;
+        }
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
-  <body><h1>Aquib Ajani's Portfolio</h1></body>
+  <body>
+    <!-- Hero -->
+    <header class="hero">
+      <div class="container">
+        <img src="aquib.png" alt="Aquib Ajani" class="avatar" />
+        <h1>Aquib Ajani</h1>
+        <p class="title">AI Full-Stack Engineer &amp; Instructor</p>
+        <div class="links">
+          <a href="https://www.linkedin.com/in/codewithaquib/" target="_blank"
+            >LinkedIn</a
+          >
+          <a href="https://github.com/codewithaquib" target="_blank">GitHub</a>
+          <!-- <a href="https://codewithaquib.github.io/codewithaquib/" target="_blank">Portfolio</a> -->
+        </div>
+        <div class="contact">
+          aquib170896@gmail.com <span>|</span> +1 (416) 821-0683
+          <span>|</span> Toronto, Canada
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Summary -->
+      <section class="summary">
+        <h2 class="section-title">Professional Summary</h2>
+        <p>
+          Technical education leader with 7+ years of experience bridging
+          complex software engineering and impactful learning programs. M.Tech
+          in Software Engineering, startup leadership (CTO), and training over
+          300,000 learners. Combines deep hands-on expertise in Agentic AI and
+          full-stack development with a passion for instructional design,
+          curriculum development, and content creation.
+        </p>
+      </section>
+
+      <!-- Experience: L&D -->
+      <section>
+        <h2 class="section-title">Experience — Learning &amp; Development</h2>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Lead Instructor</h3>
+            <span class="date">Sep 2024 – Present</span>
+          </div>
+          <div class="exp-sub">Obsidi by BPTN &middot; Toronto, Canada</div>
+          <ul>
+            <li>
+              Led end-to-end delivery across 4 cohorts including the
+              <a href="https://aifellowship.obsidi.com/" target="_blank"
+                >AI Engineering Accelerator</a
+              >
+              and a 12-week
+              <a href="https://obsidi.com/academy">Full-Stack Bootcamp</a>.
+            </li>
+            <li>
+              Designed industry-aligned curriculum integrating Agentic AI, MCP,
+              RAG, and LLMs.
+            </li>
+            <li>
+              Facilitated immersive virtual and live training for diverse
+              cohorts.
+            </li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Subject Matter Expert (Freelance Part-Time)</h3>
+            <span class="date">Oct 2023 – Aug 2024</span>
+          </div>
+          <div class="exp-sub">upGrad Abroad &middot; Bangalore, India</div>
+          <ul>
+            <li>
+              Owned instructional delivery of 6- and 9-month full-stack
+              bootcamps for international students.
+            </li>
+            <li>
+              Guided cohorts from the USA, Canada, and India with technical
+              lectures and doubt-solving sessions.
+            </li>
+            <li>
+              Mentored capstone projects with code reviews and practical
+              engineering insights.
+            </li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Technical Trainer</h3>
+            <span class="date">Aug 2023</span>
+          </div>
+          <div class="exp-sub">Masters' Union &middot; Gurugram, India</div>
+          <ul>
+            <li>
+              Designed and delivered a 20-hour module on programming, logic, and
+              web development for the PGP in Technology &amp; Business
+              Management.
+            </li>
+            <li>
+              Created hands-on coding exercises for cross-functional
+              professionals.
+            </li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Full Stack Development Trainer</h3>
+            <span class="date">Mar 2023 – Jul 2023</span>
+          </div>
+          <div class="exp-sub">upGrad KnowledgeHut &middot; Dubai, UAE</div>
+          <ul>
+            <li>
+              Led a 3-month full-time Full-Stack program on-site for UAE
+              graduates.
+            </li>
+            <li>
+              Tailored curriculum for native Arab students, bridging language
+              and cultural contexts.
+            </li>
+            <li>
+              Built corporate talent pipeline for leading banks across the UAE.
+            </li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Technical Trainer (Freelance Part-Time)</h3>
+            <span class="date">Oct 2021 – Nov 2022</span>
+          </div>
+          <div class="exp-sub">HeroVired &middot; Bangalore, India</div>
+          <ul>
+            <li>
+              Delivered instructor-led training in Full-Stack Web Development
+              for diverse cohorts.
+            </li>
+            <li>Partnered with OLA and Innovaccer for in-person training.</li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>
+              Subject Matter Expert &amp; Adjunct Faculty (Freelance Part-Time)
+            </h3>
+            <span class="date">Oct 2020 – Dec 2022</span>
+          </div>
+          <div class="exp-sub">upGrad &middot; Bangalore, India</div>
+          <ul>
+            <li>
+              Led live mentoring for Chandigarh University and IIIT Bangalore
+              students.
+            </li>
+            <li>
+              Scripted and recorded 30+ hours of tutorial content on C, Java,
+              and DSA.
+            </li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Learning Content Designer</h3>
+            <span class="date">Feb 2019 – Dec 2019</span>
+          </div>
+          <div class="exp-sub">
+            MyCaptain by The Climber &middot; Bangalore, India
+          </div>
+          <ul>
+            <li>
+              Architected a scalable online workshop framework for consistent
+              delivery.
+            </li>
+            <li>
+              Developed curriculum and content for 10 technical workshops.
+            </li>
+            <li>
+              Collaborated with SMEs to script and record learning materials.
+            </li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Technical Workshop Mentor (Freelance Part-Time)</h3>
+            <span class="date">Dec 2016 – Dec 2022</span>
+          </div>
+          <div class="exp-sub">
+            MyCaptain by The Climber &middot; Bangalore, India
+          </div>
+          <ul>
+            <li>
+              Mentored 15,000+ learners in Web Development and programming.
+            </li>
+            <li>
+              Delivered workshops at IIT Jammu and other prestigious
+              institutions.
+            </li>
+            <li>
+              <a
+                href="https://medium.com/@theclimber_ind/meet-20-year-old-coding-behemoth-aquib-ajani-who-will-find-you-and-teach-you-to-code-6a64e6456aa3"
+                target="_blank"
+                >Featured on the company's corporate blog</a
+              >
+              for instructional impact.
+            </li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Course Author (Freelance Part-Time)</h3>
+            <span class="date">Dec 2014 – Dec 2019</span>
+          </div>
+          <div class="exp-sub">ChalkStreet &middot; Bangalore, India</div>
+          <ul>
+            <li>
+              Designed curriculum architecture for 7 technical courses
+              generating 3,200+ paid registrations.
+            </li>
+            <li>
+              <a
+                href="https://economictimes.indiatimes.com/small-biz/startups/meet-chalkstreet-the-startup-that-chalks-your-courses/articleshow/57927266.cms?from=mdr"
+                target="_blank"
+                >Featured in The Economic Times</a
+              >
+              as an industry-leading educator.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Experience: Software Development -->
+      <section>
+        <h2 class="section-title">Experience — Software Development</h2>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Chief Technology Officer (Freelance Part-Time)</h3>
+            <span class="date">Sep 2021 – Jul 2024</span>
+          </div>
+          <div class="exp-sub">
+            Unboxing Art by Dark Room Poets &middot; Nagpur, India
+          </div>
+          <ul>
+            <li>
+              Architected a cross-platform LMS (iOS, Android, Web) with
+              full-stack development and real-time data sync.
+            </li>
+            <li>
+              Built a custom proprietary Sales CRM with complex database
+              relationships and lead-tracking pipelines.
+            </li>
+            <li>
+              Managed three WordPress websites including security hardening and
+              server configuration.
+            </li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Founder &amp; CEO (Freelance Part-Time)</h3>
+            <span class="date">Nov 2017 – Jun 2021</span>
+          </div>
+          <div class="exp-sub">
+            Tabdeel Studios Training and Consultancy (OPC) Private Limited
+            &middot; Nagpur, India
+          </div>
+          <ul>
+            <li>
+              Designed, programmed, and deployed 20+ full-stack web and mobile
+              applications.
+            </li>
+            <li>
+              Managed end-to-end SDLC including Git, AWS/GoDaddy deployment, and
+              performance optimization.
+            </li>
+            <li>
+              Translated business requirements into clean, maintainable code
+              architectures.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section>
+        <h2 class="section-title">Course Content Projects</h2>
+        <div class="project-list">
+          <div class="project-item">
+            <strong>Data Structures &amp; Algorithms</strong><br />20+ hours of
+            content for
+            <a
+              href="https://tutorac.com/video-courses/Data-Structures"
+              target="_blank"
+              >Tutorac</a
+            >
+          </div>
+          <div class="project-item">
+            <strong>Zerodha (FinTech App) Clone</strong><br />Hands-on project
+            tutorial for
+            <a
+              href="https://github.com/apna-college/zerodha-clone"
+              target="_blank"
+              >Apna College</a
+            >
+          </div>
+          <div class="project-item">
+            <strong>C Programming</strong><br />20+ hours of content for upGrad
+            &amp; Chandigarh University
+          </div>
+          <div class="project-item">
+            <strong>Programmer's Pack</strong><br />5+ hours of content for
+            MyCaptain
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section>
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-cat">
+            <h4>Artificial Intelligence</h4>
+            <p>Agentic AI, MCP, RAG, LLMs</p>
+          </div>
+          <div class="skill-cat">
+            <h4>Coding Tools</h4>
+            <p>Claude Code (CLI), Antigravity IDE, GitHub Copilot, Eclipse</p>
+          </div>
+          <div class="skill-cat">
+            <h4>Programming</h4>
+            <p>Python, Java, C/C++</p>
+          </div>
+          <div class="skill-cat">
+            <h4>Web Development</h4>
+            <p>TypeScript, JavaScript, ReactJS, NodeJS, ExpressJS, HTML, CSS</p>
+          </div>
+          <div class="skill-cat">
+            <h4>Database</h4>
+            <p>PostgreSQL, MongoDB</p>
+          </div>
+          <div class="skill-cat">
+            <h4>Version Control</h4>
+            <p>Git, GitHub</p>
+          </div>
+          <div class="skill-cat">
+            <h4>Cloud &amp; Deployment</h4>
+            <p>Docker, AWS</p>
+          </div>
+          <div class="skill-cat">
+            <h4>Instructional Design</h4>
+            <p>
+              Curriculum Development, Script Writing, Technical Content Creation
+            </p>
+          </div>
+          <div class="skill-cat">
+            <h4>Methodologies</h4>
+            <p>Agile, Scrum</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section>
+        <h2 class="section-title">Education &amp; Certifications</h2>
+
+        <div class="edu-block">
+          <h3>M.Tech in Software Engineering (5 years integrated)</h3>
+          <span class="date">2014 – 2019</span>
+        </div>
+        <div class="edu-detail">
+          VIT University, Vellore &mdash; GPA: 9.36/10 &middot;
+          <a
+            href="https://drive.google.com/file/d/1CNBjKzsuz67eFR0ipA5wI46Dd20dydNU/view?usp=sharing"
+            target="_blank"
+            >View Certificate</a
+          >
+        </div>
+
+        <h4
+          style="
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #0f172a;
+          "
+        >
+          Certifications
+        </h4>
+        <ul class="cert-list">
+          <li>
+            <a href="https://maven.com/wrap-up/c8d3edc3" target="_blank"
+              >Agent Engineering Bootcamp: Developers Edition (Maven)</a
+            >
+            — Dec 2025
+          </li>
+          <li>
+            <a
+              href="https://credentials.databricks.com/83d1993e-f611-4159-b0d1-df6d2577e1ab"
+              target="_blank"
+              >Academy Accreditation — Generative AI Fundamentals
+              (Databricks)</a
+            >
+            — Jul 2025
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/learning/certificates/057b7c81d5abdc4607b7f1c244fb8e77099db7ae36be7cbbcfaccecd1ffe351f"
+              target="_blank"
+              >Designing the Learner's Journey (LinkedIn Learning)</a
+            >
+            — May 2025
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/learning/certificates/43941d02fb7779624d24434fd9045286950beb2ca50cd3920b8cb5995edffdc5"
+              target="_blank"
+              >Build Your Own Professional Training: Quick Start Guide (LinkedIn
+              Learning)</a
+            >
+            — Mar 2025
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">&copy; 2026 Aquib Ajani</div>
+    </footer>
+  </body>
 </html>
